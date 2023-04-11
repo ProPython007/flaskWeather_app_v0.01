@@ -1,0 +1,27 @@
+{% extends 'base.html' %} {% block content %}
+
+<div class="container">
+    <br>
+    <br>
+    <div class="row height d-flex justify-content-center align-items-center">
+        <div class="col-md-8">
+            <div class="search">
+                <form action="/search">
+                    <input
+                    name="city"
+                    type="text"
+                    class="form-control"
+                    placeholder="Enter city name"
+                    />
+
+                    <br>
+                    <center><button type="submit" class="btn btn-primary">Search</button></center>
+                
+                </form>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

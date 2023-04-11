@@ -1,0 +1,17 @@
+{% extends 'base.html' %} {% block content %}
+
+<div class="container">
+    <br>
+    <h1>Weather at {{data.name}}:</h1>
+    <br>
+    <div class="c1" style="max-width: 600px;">
+        {% for k, v in data.items() %}
+        <div style="display: flex; justify-content: space-between;">
+            <h3>{{k}}:</h3>
+            <p>{{v}}</p>
+        </div>
+    {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
