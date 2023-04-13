@@ -71,17 +71,22 @@ class GetReport:
         return dt.datetime.utcfromtimestamp(self.response['sys']['sunset'] + self.response['timezone']).strftime('%Y-%m-%d %I:%M %p')
 
 
+    def getIcon(self) -> str:
+        return self.response['weather'][0]['icon']
+
+
     def getData(self):
-        if self.response is None:
+        if self.response is None or self.response['cod'] != 200:
             return {}
         data = {
             'name': f'{self.getName()}',
-            'temp': f'{self.getTemp():.2f} C',
-            'feels_like': f'{self.getFeelslike():.2f} C',
+            'temp': f'{self.getTemp():.2f}',
+            'feels_like': f'{self.getFeelslike():.2f}',
             'humidity': f'{self.getHumidity()} %',
             'windspeed': f'{self.getWindspeed()} m/s',
-            'description': f'{self.getDescription()}',
+            'description': f'{self.getDescription().capitalize()}',
             'sunrise': f'{self.getSunrise()}',
-            'sunset': f'{self.getSunset()}'
+            'sunset': f'{self.getSunset()}',
+            'icon_url': f'https://openweathermap.org/img/wn/{self.getIcon()}.png'
         }
         return data

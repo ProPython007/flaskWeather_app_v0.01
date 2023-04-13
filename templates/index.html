@@ -1,27 +1,36 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %} 
 
-<div class="container">
-    <br>
-    <br>
-    <div class="row height d-flex justify-content-center align-items-center">
-        <div class="col-md-8">
-            <div class="search">
-                <form action="/search">
-                    <input
-                    name="city"
-                    type="text"
-                    class="form-control"
-                    placeholder="Enter city name"
-                    />
+{% block headcontent %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+{% endblock %}
 
-                    <br>
-                    <center><button type="submit" class="btn btn-primary">Search</button></center>
-                
-                </form>
-                
+{% block content %}
+
+    <div class="main-search" style="height: 90vh;">
+        <br>
+        <br>
+        <div class="row height d-flex justify-content-center align-items-center">
+            <div class="col-md-8">
+                <div class="search-box">
+                    
+                    <form action="/search">
+                        <button class="btn-search"><i class="fas fa-search fa-2xl"></i></button>
+                        <input name="city" type="text" class="input-search" placeholder="Type to Search...">
+                        <!-- <input
+                        name="city"
+                        type="text"
+                        class="form-control"
+                        placeholder="Enter city name"
+                        />
+
+                        <br>
+                        <center><button type="submit" class="btn btn-primary">Search</button></center> -->
+                    
+                    </form>
+                    
+                </div>
             </div>
         </div>
     </div>
-</div>
 
 {% endblock %}
