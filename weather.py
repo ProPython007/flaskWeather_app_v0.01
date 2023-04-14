@@ -4,7 +4,8 @@ import json
 
 
 BASE_URL = 'https://api.openweathermap.org/data/2.5/weather?'
-API_KEY = open('key.txt', 'r').read()
+# API_KEY = open('key.txt', 'r').read()
+API_KEY = open('wTell_key.txt', 'r').read()
 
 
 class GetReport:
